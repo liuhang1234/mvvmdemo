@@ -1,19 +1,13 @@
 package com.lh.myapplication
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lh.myapplication.base.BaseActivity
 import com.lh.myapplication.bean.Data
 import com.lh.myapplication.databinding.ActivityMainBinding
-import com.lh.myapplication.http.HttpUtils
 import com.lh.myapplication.main.MainViewModel
 import com.lh.myapplication.viewholder.MainAdapter
-import com.lh.myapplication.viewholder.RecyclerViewAdapter
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener
-import okhttp3.OkHttpClient
 
 class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
     var adapter: MainAdapter? = null
