@@ -34,6 +34,8 @@ class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
         }
         mVB.test=mVM
         mVB.refreshLayout.autoRefresh()
+        // 不添加。不会更新UI
+        mVB.lifecycleOwner=this
 
     }
 
@@ -48,9 +50,6 @@ class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
             adapter?.let {it2->
                 it2.setList(list)
             }
-        })
-        mVM.text.observe(this, Observer {
-            mVB.tvShow.text = it
         })
     }
 
