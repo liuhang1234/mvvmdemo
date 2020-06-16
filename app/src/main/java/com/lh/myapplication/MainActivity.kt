@@ -32,7 +32,7 @@ class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
             mVM.getListData(page)
             mVM.text.value=page.toString()
         }
-
+        mVB.test=mVM
         mVB.refreshLayout.autoRefresh()
 
     }
@@ -47,7 +47,6 @@ class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>() {
             Log.d("liuhang","jajaj")
             adapter?.let {it2->
                 it2.setList(list)
-                it2.notifyDataSetChanged()
             }
         })
         mVM.text.observe(this, Observer {
