@@ -1,0 +1,11 @@
+package com.lh.myapplication.bean
+
+class ListDatas {
+    var curPage: Int = 0
+    var offset: Int = 0
+    var over: Boolean = true
+    var pageCount: Int = 0
+    var size: Int = 0
+    var total: Int = 0
+    var datas: List<Data>? = null
+}
