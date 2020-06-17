@@ -18,21 +18,20 @@ open class BaseViewModel:ViewModel() {
     val httpUtil by lazy { HttpUtils.getInstance().getApiService() }
 
 
-    fun <T> launch(
-        block: suspend CoroutineScope.() -> BaseResult<T>,
-        liveData: MutableLiveData<T>
-    ){
+    fun <T> launch(block: suspend CoroutineScope.() -> BaseResult<T>,
+        liveData: MutableLiveData<T>){
+        // kotlin 的协程
         viewModelScope.launch{
             var result: BaseResult<T>? = null
             withContext(Dispatchers.IO) {
                 result = block()
             }
             if (result!!.errorCode == 0) {//请求成功
-//                liveData.postValue(result!!.data)
+                // 把数据存至liveData的value中
                 liveData.value=result!!.data
-
             } else {
-                Log.d("LIU","error")
+                liveData.value = null
+                Log.d("error","message error")
             }
         }
     }

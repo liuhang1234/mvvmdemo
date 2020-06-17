@@ -4,10 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-    <variable
-        name="test"
-        type="com.lh.myapplication.main.MainViewModel" />
+
+        <variable
+            name="test"
+            type="com.lh.myapplication.main.Model" />
+
+        <variable
+            name="activity"
+            type="com.lh.myapplication.MainActivity" />
     </data>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,23 +23,19 @@
 
         <TextView
             android:id="@+id/tv_show"
-            android:background="#FF0000"
-            android:text="@={test.text}"
-            android:textSize="20sp"
-            android:textColor="#000000"
-            tools:text="哈哈哈哈啊哈"
-            android:onClick="@{test::click}"
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="40dp"
+            android:background="#FF0000"
+            android:onClick="@{activity::click}"
+            android:text="@={test.page}"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            tools:text="哈哈哈哈啊哈" />
 
         <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:id="@+id/refreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srlDisableContentWhenLoading="true"
-            app:srlDisableContentWhenRefresh="true"
-            app:srlEnableAutoLoadMore="false"
-            app:srlEnableLoadMore="true"
             app:srlEnableLoadMoreWhenContentNotFull="false"
             app:srlEnableOverScrollBounce="false"
             app:srlEnableRefresh="true">

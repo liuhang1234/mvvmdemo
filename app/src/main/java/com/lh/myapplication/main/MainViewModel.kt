@@ -8,16 +8,15 @@ import com.lh.myapplication.bean.ListDatas
 
 class MainViewModel :BaseViewModel() {
 
-
+    // 获取列表的数据内容，使用LiveData来观察该数据
     var articlesData = MutableLiveData<ListDatas>()
+    // TextView的数据展示
+    var model = MutableLiveData<Model>()
 
-    var text = MutableLiveData<String>()
 
-    fun click(view : View){
-        Log.d("click","dayin")
-    }
-
+    //获取服务器数据
     fun getListData(page:Int){
+        model.value?.page?.value = page.toString()
         launch({httpUtil.getArticleList(page)},
             articlesData)
     }
